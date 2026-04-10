@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+  html, body { height: 100%; margin: 0; }
+  * { box-sizing: border-box; }
+  .font-display { font-family: 'DM Serif Display', serif; }
+  .font-body { font-family: 'DM Sans', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes expandLine {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  .anim-fade { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .anim-slide { animation: slideIn 0.6s ease forwards; opacity: 0; }
+  .anim-line { animation: expandLine 1s ease forwards; }
+
+  .skill-bar { transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+
+  .exp-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .exp-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .timeline-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    position: absolute; left: -6px; top: 8px;
+    transition: transform 0.3s ease;
+  }
+  .exp-card:hover .timeline-dot { transform: scale(1.5); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div class="noise-overlay"></div>
+  <div id="app-root" class="w-full h-full overflow-auto" style="background:#0a0a0a; color:#e8e4df;"><!-- Hero Section -->
+   <header class="relative w-full overflow-hidden" style="min-height: 70%;">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 20% 50%, #1a1412 0%, #0a0a0a 70%);"></div>
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-10" style="background: repeating-linear-gradient(45deg, transparent, transparent 40px, #c4956a22 40px, #c4956a22 41px);"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 flex flex-col justify-center" style="min-height: 70%; padding-top: 80px; padding-bottom: 80px;">
+     <div class="anim-slide" style="animation-delay: 0.1s;"><span id="el-title" class="font-mono text-xs tracking-[0.3em] uppercase" style="color:#c4956a;">Senior Product Designer</span>
+     </div>
+     <h1 id="el-name" class="font-display anim-fade mt-4 leading-[0.95]" style="font-size: clamp(3rem, 8vw, 7rem); animation-delay: 0.3s; color:#e8e4df;">Alexandra<br>
+      Whitmore</h1>
+     <div class="anim-fade mt-8 max-w-xl" style="animation-delay: 0.5s;">
+      <div class="w-16 h-[2px] mb-6 anim-line" style="background:#c4956a;"></div>
+<p id="el-bio" class="text-base leading-relaxed" style="color:#9a9590; font-weight:300;">
+Creative technologist and IT support specialist focused on building real-world systems, digital experiences, and visual content. Experienced in CGI design, advertising creatives, web development, and operational workflow optimization across retail and nonprofit environments.
+</p>
+     </div>
+     <div class="anim-fade flex flex-wrap gap-6 mt-10" style="animation-delay: 0.7s;"><a href="#contact" class="group flex items-center gap-2 px-6 py-3 text-sm font-medium tracking-wide uppercase transition-all duration-300" style="background:#c4956a; color:#0a0a0a; border-radius:2px;"> <span>Get in Touch</span> <i data-lucide="arrow-down-right" style="width:16px;height:16px;" class="transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></i> </a> <a href="#experience" class="flex items-center gap-2 px-6 py-3 text-sm font-medium tracking-wide uppercase border transition-all duration-300 hover:bg-white/5" style="color:#e8e4df; border-color:#333; border-radius:2px;"> View Experience </a>
+    <a href="#portfolio" class="flex items-center gap-2 px-6 py-3 text-sm font-medium uppercase border transition-all duration-300 hover:bg-white/5" style="color:#e8e4df; border-color:#333;">
+  View Portfolio
+</a>
+     </div><!-- Contact Pills -->
+     <div class="anim-fade flex flex-wrap gap-4 mt-14" style="animation-delay: 0.9s;"><span class="flex items-center gap-2 text-xs font-mono" style="color:#777;"> <i data-lucide="mail" style="width:14px;height:14px;color:#c4956a;"></i> <span id="el-email">abeerhamidibrahim@hotmail.com</span> </span> <span class="flex items-center gap-2 text-xs font-mono" style="color:#777;"> <i data-lucide="phone" style="width:14px;height:14px;color:#c4956a;"></i> <span id="el-phone">+971 56 8831 388</span> </span> <span class="flex items-center gap-2 text-xs font-mono" style="color:#777;"> <i data-lucide="map-pin" style="width:14px;height:14px;color:#c4956a;"></i> <span id="el-location">Abu Dhabi, UAE</span> </span>
+     </div>
+    </div>
+   </header><!-- Stats Bar -->
+   <section class="w-full border-t border-b" style="border-color:#1a1a1a;">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 grid grid-cols-2 md:grid-cols-4">
+     <div class="py-8 md:py-10 border-r" style="border-color:#1a1a1a;">
+      <div class="font-display text-3xl md:text-4xl" style="color:#c4956a;">
+       8+
+      </div>
+      <div class="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style="color:#666;">
+       Years Experience
+      </div>
+     </div>
+     <div class="py-8 md:py-10 pl-6 md:border-r" style="border-color:#1a1a1a;">
+      <div class="font-display text-3xl md:text-4xl" style="color:#c4956a;">
+       50+
+      </div>
+      <div class="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style="color:#666;">
+       Projects Shipped
+      </div>
+     </div>
+     <div class="py-8 md:py-10 md:pl-6 border-r" style="border-color:#1a1a1a;">
+      <div class="font-display text-3xl md:text-4xl" style="color:#c4956a;">
+       12
+      </div>
+      <div class="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style="color:#666;">
+       Design Awards
+      </div>
+     </div>
+     <div class="py-8 md:py-10 pl-6">
+      <div class="font-display text-3xl md:text-4xl" style="color:#c4956a;">
+       3M+
+      </div>
+      <div class="font-mono text-[10px] uppercase tracking-[0.2em] mt-1" style="color:#666;">
+       Users Impacted
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience Section -->
+   <section id="experience" class="w-full py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+     <div class="flex items-center gap-4 mb-16"><span class="font-mono text-[10px] uppercase tracking-[0.3em]" style="color:#c4956a;">01</span>
+      <h2 class="font-display text-3xl md:text-4xl" style="color:#e8e4df;">Experience</h2>
+      <div class="flex-1 h-[1px]" style="background:#1a1a1a;"></div>
+     </div>
+     <div class="space-y-0"><!-- Job 1 -->
+    <!-- 313 Perfumes -->
+ <div class="exp-card relative pl-8 pb-14 border-l">
+  <div class="timeline-dot"></div>
+
+  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+    <div>
+      <h3 class="font-display text-xl">IT Support & Digital Systems Specialist</h3>
+      <span class="font-mono text-sm" style="color:#c4956a;">
+        313 Perfumes
+      </span>
+    </div>
+    <span class="font-mono text-xs">2024 — Present</span>
+  </div>
+
+  <p class="text-sm max-w-2xl" style="color:#777;">
+    Managed and supported retail digital infrastructure, including e-commerce systems, advertising creatives, and operational workflows across multiple projects.
+  </p>
+
+  <ul class="text-sm mt-3" style="color:#777;">
+    <li>• Managed and maintained <strong>Shopify store operations</strong>, including product updates, layout adjustments, and content management</li>
+    <li>• Developed and customized Shopify web pages using themes and front-end adjustments</li>
+    <li>• Integrated store systems and workflows (orders, product data, and operational tools)</li>
+    <li>• Built CGI-based advertising creatives and marketing visuals</li>
+    <li>• Supported POS systems and ensured smooth retail operation workflows</li>
+    <li>• Improved internal documentation and process efficiency across teams</li>
+    <li>• Worked on 6+ real operational and creative projects</li>
+  </ul>
+</div>
+      </div><!-- Job 2 -->
+      <!-- Al Mubarakah -->
+  <div class="exp-card relative pl-8 pb-14 border-l">
+    <div class="timeline-dot"></div>
+
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+      <div>
+        <h3 class="font-display text-xl">Program Supervisor (Summer Camp)</h3>
+        <span class="font-mono text-sm" style="color:#c4956a;">
+          Al Mubarakah Foundation
+        </span>
+      </div>
+      <span class="font-mono text-xs">2023 — 2024</span>
+    </div>
+
+    <p class="text-sm max-w-2xl" style="color:#777;">
+      Supervised on-site summer camp operations ensuring program quality, documentation accuracy, and smooth execution.
+    </p>
+
+    <ul class="text-sm mt-3" style="color:#777;">
+      <li>• Managed daily program activities and participant flow</li>
+      <li>• Maintained structured documentation and reporting systems</li>
+      <li>• Coordinated staff and ensured operational consistency</li>
+    </ul>
+  </div>
+
+</div>
+      </div><!-- Job 3 -->
+      <!-- Freelance Web Development -->
+<div class="exp-card relative pl-8 pb-14 border-l">
+  <div class="timeline-dot"></div>
+
+  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+    <div>
+      <h3 class="font-display text-xl">Web Developer & Digital Systems Freelancer</h3>
+      <span class="font-mono text-sm" style="color:#c4956a;">
+        Independent / Self-Employed
+      </span>
+    </div>
+    <span class="font-mono text-xs">2022 — Present</span>
+  </div>
+
+  <p class="text-sm max-w-2xl" style="color:#777;">
+    Built and delivered websites and digital solutions for small businesses, focusing on web development, system setup, and business digitization.
+  </p>
+
+  <ul class="text-sm mt-3" style="color:#777;">
+    <li>• Designed and developed business websites using HTML, CSS, and CMS platforms</li>
+    <li>• Provided web development and digital setup services for small businesses</li>
+    <li>• Worked on UI layouts, branding pages, and functional business websites</li>
+    <li>• Assisted in integrating online systems for business operations</li>
+    <li>• Delivered multiple client-based web and digital projects end-to-end</li>
+  </ul>
+</div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section class="w-full py-20 md:py-28" style="background:#0e0e0e;">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+     <div class="flex items-center gap-4 mb-16"><span class="font-mono text-[10px] uppercase tracking-[0.3em]" style="color:#c4956a;">02</span>
+      <h2 class="font-display text-3xl md:text-4xl" style="color:#e8e4df;">Skills</h2>
+      <div class="flex-1 h-[1px]" style="background:#1a1a1a;"></div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-x-16 gap-y-8">
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">UI / Visual Design</span> <span class="font-mono text-xs" style="color:#555;">95%</span>
+       </div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:95%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">User Research</span> <span class="font-mono text-xs" style="color:#555;">88%</span>
+       </div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:88%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">Prototyping &amp; Interaction</span> <span class="font-mono text-xs" style="color:#555;">92%</span>
+       </div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:92%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">Design Systems</span> <span class="font-mono text-xs" style="color:#555;">90%</span>
+       </div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:90%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">Front-End Development</span> <span class="font-mono text-xs" style="color:#555;">75%</span>
+       </div>
+        <div>
+  <div class="flex justify-between mb-2">
+    <span class="text-sm font-medium">Shopify Store Management</span>
+    <span class="font-mono text-xs">85%</span>
+  </div>
+  <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+    <div class="skill-bar h-full rounded" style="width:85%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+  </div>
+</div>
+
+<div>
+  <div class="flex justify-between mb-2">
+    <span class="text-sm font-medium">E-commerce Systems Integration</span>
+    <span class="font-mono text-xs">80%</span>
+  </div>
+  <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+    <div class="skill-bar h-full rounded" style="width:80%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+  </div>
+</div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:75%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+      <div>
+       <div class="flex justify-between mb-2"><span class="text-sm font-medium" style="color:#e8e4df;">Team Leadership</span> <span class="font-mono text-xs" style="color:#555;">85%</span>
+       </div>
+       <div class="w-full h-[3px] rounded" style="background:#1a1a1a;">
+        <div class="skill-bar h-full rounded" style="width:85%;background:linear-gradient(90deg,#c4956a,#d4a87a);"></div>
+       </div>
+      </div>
+     </div><!-- Tools -->
+     <div class="mt-16 pt-16 border-t" style="border-color:#1a1a1a;">
+      <h3 class="font-mono text-[10px] uppercase tracking-[0.3em] mb-8" style="color:#c4956a;">Tools &amp; Technologies</h3>
+      <div class="flex flex-wrap gap-3"><span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Figma</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Sketch</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Framer</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Principle</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">React</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Tailwind CSS</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Miro</span> <span class="px-5 py-2.5 text-xs font-medium border transition-colors duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#888;border-radius:2px;">Notion</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Education -->
+   <section class="w-full py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+     <div class="flex items-center gap-4 mb-16"><span class="font-mono text-[10px] uppercase tracking-[0.3em]" style="color:#c4956a;">03</span>
+      <h2 class="font-display text-3xl md:text-4xl" style="color:#e8e4df;">Education</h2>
+      <div class="flex-1 h-[1px]" style="background:#1a1a1a;"></div>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="p-8 border transition-colors duration-300 hover:border-[#c4956a33]" style="border-color:#1a1a1a;border-radius:2px;"><span class="font-mono text-xs" style="color:#555;">2014 — 2016</span>
+       <h3 class="font-display text-lg mt-2" style="color:#e8e4df;">MFA Interaction Design</h3>
+       <p class="text-sm mt-1" style="color:#c4956a;">School of Visual Arts, NYC</p>
+       <p class="text-sm mt-3" style="color:#666;">Thesis: "Designing Trust in Autonomous Systems" — awarded Best in Show.</p>
+      </div>
+      <div class="p-8 border transition-colors duration-300 hover:border-[#c4956a33]" style="border-color:#1a1a1a;border-radius:2px;"><span class="font-mono text-xs" style="color:#555;">2010 — 2014</span>
+       <h3 class="font-display text-lg mt-2" style="color:#e8e4df;">BA Graphic Design</h3>
+       <p class="text-sm mt-1" style="color:#c4956a;">Rhode Island School of Design</p>
+       <p class="text-sm mt-3" style="color:#666;">Cum Laude. Focus on typography, visual communication, and digital media.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Footer -->
+   <footer id="contact" class="w-full py-20 md:py-28 border-t" style="border-color:#1a1a1a; background:#070707;">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 text-center"><span class="font-mono text-[10px] uppercase tracking-[0.3em]" style="color:#c4956a;">Let's Connect</span>
+     <h2 class="font-display text-3xl md:text-5xl mt-4" style="color:#e8e4df;">Available for new<br>
+      opportunities</h2>
+     <div class="flex justify-center gap-6 mt-10"><a href="#" class="w-12 h-12 flex items-center justify-center border transition-all duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#666;border-radius:2px;"> <i data-lucide="linkedin" style="width:18px;height:18px;"></i> </a> <a href="#" class="w-12 h-12 flex items-center justify-center border transition-all duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#666;border-radius:2px;"> <i data-lucide="dribbble" style="width:18px;height:18px;"></i> </a> <a href="#" class="w-12 h-12 flex items-center justify-center border transition-all duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#666;border-radius:2px;"> <i data-lucide="github" style="width:18px;height:18px;"></i> </a> <a href="#" class="w-12 h-12 flex items-center justify-center border transition-all duration-300 hover:border-[#c4956a] hover:text-[#c4956a]" style="border-color:#222;color:#666;border-radius:2px;"> <i data-lucide="twitter" style="width:18px;height:18px;"></i> </a>
+     </div>
+     <p class="font-mono text-xs mt-12" style="color:#333;">© 2024 Alexandra Whitmore. All rights reserved.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+  const defaultConfig = {
+    full_name: 'Alexandra\nWhitmore',
+    job_title: 'Senior Product Designer',
+    bio_text: 'Design leader with 8+ years shaping digital products for startups and Fortune 500 companies. I bridge the gap between user needs and business goals through research-driven, visually compelling experiences.',
+    email_address: 'alex@whitmore.design',
+    phone_number: '+1 415 892 3047',
+    location_text: 'San Francisco, CA',
+    background_color: '#0a0a0a',
+    accent_color: '#c4956a',
+    text_color: '#e8e4df',
+    surface_color: '#0e0e0e',
+    muted_color: '#777777',
+    font_family: 'DM Sans',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    const c = { ...defaultConfig, ...config };
+
+    // Text content
+    const nameEl = document.getElementById('el-name');
+    const nameText = (c.full_name || defaultConfig.full_name).replace(/\n/g, '<br>');
+    nameEl.innerHTML = nameText;
+
+    document.getElementById('el-title').textContent = c.job_title || defaultConfig.job_title;
+    document.getElementById('el-bio').textContent = c.bio_text || defaultConfig.bio_text;
+    document.getElementById('el-email').textContent = c.email_address || defaultConfig.email_address;
+    document.getElementById('el-phone').textContent = c.phone_number || defaultConfig.phone_number;
+    document.getElementById('el-location').textContent = c.location_text || defaultConfig.location_text;
+
+    // Colors
+    const bg = c.background_color || defaultConfig.background_color;
+    const accent = c.accent_color || defaultConfig.accent_color;
+    const text = c.text_color || defaultConfig.text_color;
+    const surface = c.surface_color || defaultConfig.surface_color;
+    const muted = c.muted_color || defaultConfig.muted_color;
+
+    document.getElementById('app-root').style.background = bg;
+    document.getElementById('app-root').style.color = text;
+
+    // Apply accent color throughout
+    document.querySelectorAll('[style*="color:#c4956a"], [style*="color: #c4956a"]').forEach(el => {
+      if (el.style.color && el.style.color.includes('196')) el.style.color = accent;
+    });
+
+    // Font
+    const font = c.font_family || defaultConfig.font_family;
+    const baseSize = c.font_size || defaultConfig.font_size;
+    document.getElementById('app-root').style.fontFamily = `${font}, DM Sans, sans-serif`;
+    document.getElementById('el-bio').style.fontSize = `${baseSize}px`;
+  }
+
+  // Element SDK init
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => { applyConfig(config); },
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+          { get: () => config.muted_color || defaultConfig.muted_color, set: (v) => { config.muted_color = v; window.elementSdk.setConfig({ muted_color: v }); } },
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['full_name', config.full_name || defaultConfig.full_name],
+        ['job_title', config.job_title || defaultConfig.job_title],
+        ['bio_text', config.bio_text || defaultConfig.bio_text],
+        ['email_address', config.email_address || defaultConfig.email_address],
+        ['phone_number', config.phone_number || defaultConfig.phone_number],
+        ['location_text', config.location_text || defaultConfig.location_text],
+      ])
+    });
+  }
+
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ea01cd1165c3415',t:'MTc3NTgwNjkyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
